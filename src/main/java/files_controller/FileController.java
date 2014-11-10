@@ -1,4 +1,4 @@
-package controller;
+package files_controller;
 
 import java.io.*;
 import java.sql.*;
@@ -41,7 +41,7 @@ public class FileController {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream = 
-                        new BufferedOutputStream(new FileOutputStream(new File(email + "_" + password)));
+                        new BufferedOutputStream(new FileOutputStream(new File(email)));
                 stream.write(bytes);
                 stream.close();
                 response.setStatus(200);
@@ -66,7 +66,7 @@ public class FileController {
             }
 
             //----delete old file------
-            File oldFile = new File(email + "_" + password);
+            File oldFile = new File(email);
             if (oldFile.exists()) {
                 oldFile.delete();
             }
@@ -74,7 +74,7 @@ public class FileController {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(email + "_" + password)));
+                        new BufferedOutputStream(new FileOutputStream(new File(email)));
                 stream.write(bytes);
                 stream.close();
                 response.setStatus(200);
